@@ -1,0 +1,792 @@
+/* Primary Color Palette */
+:root {
+  /* Absolute Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Theme-dependent Colors (Light Scheme) */
+  --color-background: #f8f9fa;         /* Light grey background */
+  --color-text-primary: #212529;       /* Dark text for readability */
+  --color-text-secondary: #555555;     /* Slightly lighter dark grey for secondary text */
+
+  --color-surface-1: #ffffff;          /* For cards, modals, etc. - pure white */
+  --color-surface-2: #e9ecef;          /* Slightly off-white, for subtle backgrounds */
+
+  --color-border-primary: #ced4da;     /* Standard border color */
+  --color-border-secondary: #adb5bd;   /* Slightly darker border */
+
+  --color-accent: #39FF14;             /* Neon Green */
+  --color-accent-contrast: #000000;    /* Text color for on accent elements */
+
+  /* Legacy (review if still needed or rename/remove) */
+  /* --color-dark-grey-1: #121212; becomes --color-text-primary or similar */
+  /* --color-dark-grey-2: #1e1e1e; becomes --color-text-secondary or similar */
+  /* --color-light-grey: #f5f5f5; becomes --color-background or similar */
+}
+
+/* Basic Body Styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Placeholder for Typography Styles */
+/* Typography styles will go here */
+
+/* Placeholder for Component-Specific Styles */
+
+/* Navigation Bar Styles */
+/* Bootstrap's navbar-light class handles most text colors. We can fine-tune. */
+.navbar.bg-light { /* Overriding Bootstrap's default bg-light if needed */
+    background-color: var(--color-surface-1) !important; /* Use our surface color */
+}
+
+.navbar-brand { /* SHIPA Logo */
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: var(--color-text-primary) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--color-text-secondary) !important; /* Use secondary text color for links */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-accent) !important;
+}
+
+/* SVG Icons in Navbar */
+.nav-icon-link { /* Targets the <a> tags wrapping the SVGs, now with a specific class */
+  color: var(--color-text-secondary) !important; /* Default color inherited from .nav-link, but can be specific */
+  font-weight: normal; /* Icons don't need to be bold */
+  display: flex; /* Helps in centering SVG */
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; /* Adjust padding as needed, .nav-link default is 0.5rem */
+}
+
+.nav-icon-link:hover {
+  color: var(--color-accent) !important; /* Hover color inherited from .nav-link hover, but can be specific */
+}
+
+.navbar-nav .nav-link svg { /* General rule for SVGs within nav links */
+  vertical-align: middle; /* Good fallback if flex alignment isn't perfect */
+  /* Width and height are set inline on SVGs in HTML, e.g., 18px or 20px */
+  /* If a consistent CSS-driven size is preferred, uncomment below:
+  width: 18px;
+  height: 18px;
+  */
+}
+
+/* Hero Section Styles */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--color-surface-1); /* Light background */
+  /* background-image: url('path/to/light-theme-hero-image.jpg'); */ /* Optional: Add a light theme background image */
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-overlay {
+  /* Overlay might not be needed for light theme, or could be very subtle if used with an image */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-section .subheading {
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.hero-section .cta-button {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: bold;
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.375rem;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.hero-section .cta-button:hover {
+  background-color: #2ce60b; /* Slightly different shade of green on hover */
+  color: var(--color-accent-contrast);
+  transform: translateY(-2px);
+}
+
+/* --- General Section Styling --- */
+.section-heading {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* --- Featured Products Section --- */
+#featured-products {
+  background-color: var(--color-background); /* Main page background */
+  padding-top: 3rem; /* Added padding for visual separation */
+  padding-bottom: 3rem; /* Added padding for visual separation */
+}
+
+.product-card {
+  background-color: var(--color-surface-1); /* White cards */
+  padding: 1.5rem;
+  border-radius: 0.375rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid var(--color-border-primary); /* Subtle light border */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Softer shadow for light theme */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Slightly more pronounced shadow on hover */
+}
+
+.product-image-placeholder {
+  height: 250px;
+  background-color: var(--color-surface-2); /* Light grey placeholder bg */
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+.product-card .card-body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.product-card .product-price {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.quick-add-btn {
+  border: 1px solid var(--color-border-secondary); /* Darker border for outline */
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-1); /* Ensure it has a light background initially */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  margin-top: auto;
+  width: 100%;
+}
+
+.quick-add-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border-color: var(--color-accent);
+}
+
+
+/* --- Promo Section --- */
+.promo-section-bg {
+  background-color: var(--color-surface-2); /* Light contrasting background */
+  /* background-image: url('path/to/your/light-promo-image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  padding-top: 3rem; /* Added padding */
+  padding-bottom: 3rem; /* Added padding */
+  color: var(--color-text-primary); /* Text should be dark */
+}
+
+#promo-section .section-heading {
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+}
+
+#promo-section p.lead {
+  color: var(--color-text-secondary);
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.promo-cta {
+  background-color: var(--color-text-primary); /* Dark button on light bg */
+  color: var(--color-white); /* White text on dark button */
+  font-weight: bold;
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease;
+  border: 1px solid var(--color-text-primary);
+}
+
+.promo-cta:hover {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+/* --- Newsletter Signup Section --- */
+#newsletter-signup {
+  background-color: var(--color-background); /* Main page background */
+  padding-top: 3rem; /* Added padding */
+  padding-bottom: 3rem; /* Added padding */
+}
+
+#newsletter-signup .section-heading {
+  color: var(--color-text-primary);
+}
+
+#newsletter-signup p.lead {
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newsletter-input {
+  background-color: var(--color-surface-1);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-primary);
+  padding: 0.75rem 1rem;
+}
+
+.newsletter-input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.newsletter-input:focus {
+  background-color: var(--color-surface-1);
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.25rem rgba(57, 255, 20, 0.25);
+}
+
+.newsletter-submit-btn {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border: none;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.newsletter-submit-btn:hover {
+  background-color: #2ce60b;
+  color: var(--color-accent-contrast);
+  transform: translateY(-1px);
+}
+
+
+/* --- Footer --- */
+/* Bootstrap's .bg-light and .text-dark handle most of this in index.html */
+footer.bg-light {
+    background-color: var(--color-surface-2) !important; /* Use our own light grey */
+    color: var(--color-text-primary) !important;
+}
+
+footer h5 {
+  color: var(--color-text-primary);
+  letter-spacing: 0.05em;
+}
+
+.footer-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-accent);
+  padding-left: 5px;
+}
+
+.footer-social-icon {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icon:hover {
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.footer-brand {
+    color: var(--color-accent) !important;
+    font-weight: bold;
+}
+
+footer hr {
+    border-top: 1px solid var(--color-border-primary); /* Lighter hr */
+}
+
+.copyright-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Component-specific styles will go here */
+
+
+/* --- Blog Highlights Section --- */
+#blog-highlights {
+  background-color: var(--color-background); /* Or var(--color-surface-1) if preferred for white cards on light grey bg */
+}
+
+.blog-post-card {
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.blog-post-image-placeholder {
+  height: 180px;
+  background-color: var(--color-surface-2);
+  border-top-left-radius: calc(0.5rem - 1px); /* Adjust for border to prevent double radius effect */
+  border-top-right-radius: calc(0.5rem - 1px);
+  /* background-image: url('placeholder.jpg'); For actual image */
+  /* background-size: cover; */
+  /* background-position: center; */
+}
+
+.blog-post-card .card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-post-title { /* Already has .card-title from HTML but can be more specific */
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-snippet { /* Already has .card-text from HTML */
+  font-size: 0.9rem;
+  /* color: var(--color-text-secondary); Bootstrap's .text-muted should handle this */
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.blog-post-card .btn-outline-dark {
+  /* Standard Bootstrap btn-outline-dark styles apply */
+  /* border-color: var(--color-text-primary); */ /* If needing to override BS for theme */
+  /* color: var(--color-text-primary); */
+}
+
+.blog-post-card .btn-outline-dark:hover {
+   background-color: var(--color-accent);
+   color: var(--color-accent-contrast) !important; /* Important to override BS potentially */
+   border-color: var(--color-accent);
+}
+
+/* Responsive adjustments for blog section if needed */
+@media (max-width: 767.98px) {
+  #blog-highlights .container {  /* Apply to blog-highlights */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .blog-post-image-placeholder {
+    height: 160px; /* Slightly smaller placeholder on mobile */
+  }
+  .blog-post-title {
+    font-size: 1.15rem;
+  }
+}
+
+
+/* --- Sales Section --- */
+#sales-section {
+  background-color: var(--color-surface-2); /* Ensures it uses the theme variable for a light grey background */
+}
+
+.sale-product-card { /* Specific class for sale product cards, if needed for overrides */
+  position: relative; /* Needed for absolute positioning of the sale-badge */
+}
+
+.sale-badge {
+  position: absolute;
+  top: 15px; /* Adjusted for better spacing with padding of product-card */
+  left: 15px; /* Adjusted for better spacing with padding of product-card */
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast); /* Black text on accent */
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  z-index: 2; /* Ensure it's above product image placeholder */
+}
+
+.original-price {
+  font-size: 0.9em;
+  margin-right: 0.5rem;
+  /* text-decoration-line-through is set via Bootstrap class */
+  /* color: var(--color-text-secondary); /* Bootstrap's .text-muted should handle this */
+}
+
+.sale-price {
+  color: var(--color-accent); /* Or a distinct "sale red" if preferred, define in :root */
+  font-size: 1.1em;
+  /* font-weight: bold; is set via Bootstrap class fw-bold */
+}
+
+/* Ensure product-card specific styles are reviewed for light theme consistency */
+/* .product-card .quick-add-btn is already styled for light theme (btn-outline-dark with accent hover) */
+
+/* Responsive adjustments for sales section if needed */
+@media (max-width: 767.98px) {
+  #sales-section .container {  /* Apply to sales-section */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+   .sale-badge { /* Example: slightly smaller badge or adjusted position on mobile */
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+
+/* --- Home Collections Section --- */
+.collection-card-link {
+  display: block; /* Make the link take up the whole card area */
+  text-decoration: none; /* Already in HTML, but good for CSS completeness */
+}
+
+.collection-card {
+  position: relative; /* For overlay positioning */
+  border-radius: 0.5rem;
+  overflow: hidden; /* To keep image placeholder within rounded corners */
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  background-color: var(--color-surface-1); /* Added a fallback bg color */
+}
+
+.collection-card:hover {
+   transform: scale(1.03);
+}
+
+.collection-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-surface-2); /* Placeholder color */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease; /* For zoom effect on image */
+}
+
+.collection-card:hover .collection-image-placeholder {
+   transform: scale(1.1); /* Zoom image on card hover */
+}
+
+.collection-card-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(0,0,0,0.5); /* Semi-transparent overlay for text readability */
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+  width: calc(100% - 2rem); /* Ensure some padding from card edges */
+  margin: 1rem; /* Centering the overlay a bit if it's smaller */
+}
+
+.collection-card:hover .collection-card-overlay {
+   background-color: rgba(0,0,0,0.65); /* Darken overlay on hover */
+}
+
+.collection-card-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--color-white); /* Text on dark overlay */
+  margin-bottom: 0.75rem;
+}
+
+.collection-card .btn-outline-light { /* Style for the button within collection card */
+   border-color: var(--color-white);
+   color: var(--color-white);
+   background-color: transparent; /* Ensure it's truly outline */
+}
+
+.collection-card .btn-outline-light:hover {
+   background-color: var(--color-white);
+   color: var(--color-black); /* Text color changes to black on white background */
+}
+
+/* Responsive adjustments for collections if needed */
+@media (max-width: 767.98px) {
+  #home-collections .container {  /* Apply to home-collections */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .collection-card {
+    min-height: 250px; /* Slightly smaller cards on mobile */
+  }
+  .collection-card-title {
+    font-size: 1.5rem; /* Smaller title on mobile */
+  }
+  .collection-card-overlay {
+    padding: 1rem;
+    width: calc(100% - 1rem);
+    margin: 0.5rem;
+  }
+}
+
+
+/* --- Featured Brands Section --- */
+#featured-brands {
+  background-color: var(--color-surface-2); /* Light grey background for differentiation */
+}
+
+.brand-logo-placeholder {
+  height: 80px;
+  line-height: 80px; /* Vertically center text if using text placeholders */
+  background-color: var(--color-surface-1); /* White background for the logo box */
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brand-logo-placeholder:hover {
+   transform: scale(1.05);
+   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+
+/* --- Store Categories Section --- */
+.category-card {
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes title to bottom if image placeholder is flexible */
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.category-image-placeholder {
+  height: 150px;
+  background-color: var(--color-surface-2);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  display: flex; /* For potential content inside placeholder */
+  align-items: center;
+  justify-content: center;
+  /* font-style: italic; For text like "Image coming soon" */
+  /* color: var(--color-text-secondary); */
+}
+
+.category-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin-top: auto; /* Ensures title stays at bottom if card flex settings change */
+}
+
+.category-card-link {
+  color: var(--color-text-primary); /* Ensure link color matches card text */
+  text-decoration: none; /* Already set in HTML but good to have here */
+}
+
+.category-card-link:hover .category-card-title {
+  color: var(--color-accent);
+}
+
+/* Adjusting responsive padding for this new section if needed */
+@media (max-width: 767.98px) {
+  #store-categories .container, /* Also apply to store-categories */
+  #featured-brands .container { /* Apply to featured-brands */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .category-card {
+    padding: 1rem;
+  }
+  .category-image-placeholder {
+    height: 120px; /* Slightly smaller placeholder on mobile */
+  }
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .hero-section h1 {
+    font-size: 3rem; /* Adjusted from 3.5rem */
+  }
+  .hero-section .subheading {
+    font-size: 1.3rem; /* Adjusted from 1.5rem */
+  }
+  .section-heading {
+    font-size: 2.2rem; /* Adjusted from 2.5rem */
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .hero-section {
+    padding: 3rem 1rem; /* Reduce padding on smaller hero */
+    min-height: auto; /* Allow hero to shrink if content is short */
+  }
+  .hero-section h1 {
+    font-size: 2.5rem; /* Further reduce hero heading */
+  }
+  .hero-section .subheading {
+    font-size: 1.15rem; /* Further reduce hero subheading */
+  }
+  .section-heading {
+    font-size: 2rem; /* Further reduce section headings */
+  }
+  #featured-products .container,
+  #promo-section .container,
+  #newsletter-signup .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .product-card {
+    padding: 1rem; /* Reduce padding inside product cards */
+  }
+  .product-image-placeholder {
+    height: 200px; /* Reduce placeholder height */
+  }
+
+  /* Newsletter form stacking */
+  #newsletter-signup form .col-md-6,
+  #newsletter-signup form .col-auto {
+    width: 100%; /* Make input and button full width */
+    margin-bottom: 1rem; /* Add some space between them */
+  }
+  #newsletter-signup form .col-auto button {
+    width: 100%; /* Make button full width */
+  }
+
+  /* Footer text alignment */
+  footer .text-md-start {
+    text-align: center !important; /* Force center alignment for footer columns */
+  }
+  footer .justify-content-md-start {
+    justify-content: center !important; /* Center social icons */
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .hero-section h1 {
+    font-size: 2rem; /* Smallest hero heading */
+  }
+  .hero-section .subheading {
+    font-size: 1rem; /* Smallest hero subheading */
+  }
+  .hero-section .cta-button {
+    padding: 0.6rem 1.5rem; /* Smaller CTA */
+    font-size: 0.9rem;
+  }
+  .section-heading {
+    font-size: 1.75rem; /* Smallest section headings */
+  }
+  .product-card .card-title {
+    font-size: 1.1rem;
+  }
+  .promo-cta, .newsletter-submit-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  #chat-bubble {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+
+/* --- Live Chat Bubble --- */
+#chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast); /* Updated to use the specific variable */
+  padding: 15px 20px; /* Adjusted padding for a less circular look if "Chat" text is used */
+  border-radius: 25px; /* Pill shape */
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softer shadow for light theme */
+  z-index: 1050; /* Ensure it's above most other content, Bootstrap modals are 1050+ */
+  font-weight: bold;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+#chat-bubble:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Softer hover shadow for light theme */
+}
