@@ -26,7 +26,7 @@
 
 /* Basic Body Styling */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Inter', sans-serif;
   background-color: var(--color-background);
   color: var(--color-text-primary);
   margin: 0;
@@ -93,29 +93,33 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: var(--color-surface-1); /* Light background */
-  /* background-image: url('path/to/light-theme-hero-image.jpg'); */ /* Optional: Add a light theme background image */
+  /* background-color: var(--color-surface-1); Removed placeholder background color */
+  background-image: url('https://placehold.co/1920x1080/333333/999999/png?text=SHIPA+Hero+Streetwear+Look'); /* Placeholder image */
   background-size: cover;
-  background-position: center;
-  padding: 2rem;
-  position: relative;
+  background-position: center center; /* More specific */
+  background-repeat: no-repeat; /* Ensure no repeat */
+  padding: 2rem; /* Existing padding */
+  position: relative; /* Ensure it's relative for overlay */
 }
 
 .hero-overlay {
-  /* Overlay might not be needed for light theme, or could be very subtle if used with an image */
-  /* background-color: rgba(255, 255, 255, 0.5); */
+  background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for better contrast */
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 80%; /* Prevent text block from becoming too wide */
+  /* text-align: center; /* Already centered by .hero-section if overlay is a flex item */
 }
 
 .hero-section h1 {
   font-size: 3.5rem;
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: var(--color-white); /* Text color white for dark overlay */
   margin-bottom: 1rem;
 }
 
 .hero-section .subheading {
   font-size: 1.5rem;
-  color: var(--color-text-secondary);
+  color: var(--color-white); /* Text color white for dark overlay */
   margin-bottom: 2rem;
 }
 
@@ -172,19 +176,22 @@ body {
   box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Slightly more pronounced shadow on hover */
 }
 
-.product-image-placeholder {
-  height: 250px;
-  background-color: var(--color-surface-2); /* Light grey placeholder bg */
-  border-radius: 0.25rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-secondary);
+/* .product-image-placeholder rule removed */
+
+.product-card-image {
+  height: 300px; /* Or a height that matches the visual weight of the old placeholder */
+  object-fit: cover;
+  width: 100%;
+  /* Bootstrap's .card-img-top should handle border-radius if .product-card has rounded corners and img is first child.
+     If specific overrides are needed, uncomment below:
+  border-top-left-radius: calc(0.5rem - 1px);
+  border-top-right-radius: calc(0.5rem - 1px);
+  */
+  margin-bottom: 1rem; /* Maintain spacing similar to old placeholder */
 }
 
 .product-card .card-body {
-  padding: 0;
+  padding: 0; /* This was already here, keeping it */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -340,13 +347,21 @@ footer h5 {
 .footer-social-icon {
   color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: 1.2rem;
+  /* font-size removed as SVG size is controlled by its attributes/specific CSS */
+  display: inline-block; /* Ensures transform and spacing work as expected */
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-social-icon:hover {
   color: var(--color-accent);
-  transform: scale(1.1);
+  transform: scale(1.1); /* Keep existing hover scale effect */
+}
+
+.footer-social-icon svg {
+  width: 20px;  /* Matches HTML attribute, ensures consistency */
+  height: 20px; /* Matches HTML attribute, ensures consistency */
+  vertical-align: middle;
+  /* fill="currentColor" is in SVG, so color is inherited from .footer-social-icon */
 }
 
 .footer-brand {
@@ -386,14 +401,14 @@ footer hr {
   box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
-.blog-post-image-placeholder {
-  height: 180px;
-  background-color: var(--color-surface-2);
-  border-top-left-radius: calc(0.5rem - 1px); /* Adjust for border to prevent double radius effect */
-  border-top-right-radius: calc(0.5rem - 1px);
-  /* background-image: url('placeholder.jpg'); For actual image */
-  /* background-size: cover; */
-  /* background-position: center; */
+/* .blog-post-image-placeholder rule removed */
+
+.blog-post-image {
+  height: 180px; /* Maintain similar height to old placeholder */
+  object-fit: cover;
+  width: 100%;
+  /* .card-img-top class from Bootstrap should handle top border radius
+     if .blog-post-card has border-radius (which it does: 0.5rem) */
 }
 
 .blog-post-card .card-body {
@@ -435,8 +450,9 @@ footer hr {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .blog-post-image-placeholder {
-    height: 160px; /* Slightly smaller placeholder on mobile */
+  /* .blog-post-image-placeholder rule was here, removed */
+  .blog-post-image {
+    height: 160px; /* Slightly smaller image on mobile, consistent with old placeholder */
   }
   .blog-post-title {
     font-size: 1.15rem;
@@ -525,10 +541,20 @@ footer hr {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-surface-2); /* Placeholder color */
+  /* background-color: var(--color-surface-2); /* Removed placeholder color */
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease; /* For zoom effect on image */
+}
+
+.collection-image-summer {
+  background-image: url('https://placehold.co/800x600/FFD700/333333/png?text=Summer+Vibes+Collection');
+}
+.collection-image-urban {
+  background-image: url('https://placehold.co/800x600/555555/EEEEEE/png?text=Urban+Essentials+Collection');
+}
+.collection-image-limited {
+  background-image: url('https://placehold.co/800x600/A020F0/FFFFFF/png?text=Limited+Edition+Drops');
 }
 
 .collection-card:hover .collection-image-placeholder {
@@ -633,16 +659,14 @@ footer hr {
   box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
-.category-image-placeholder {
-  height: 150px;
-  background-color: var(--color-surface-2);
-  margin-bottom: 1rem;
+/* .category-image-placeholder rule removed */
+
+.category-card-image {
+  width: 100%;
+  height: 150px; /* Matching old placeholder height */
+  object-fit: cover;
   border-radius: 0.25rem;
-  display: flex; /* For potential content inside placeholder */
-  align-items: center;
-  justify-content: center;
-  /* font-style: italic; For text like "Image coming soon" */
-  /* color: var(--color-text-secondary); */
+  margin-bottom: 1rem; /* Matching old placeholder margin */
 }
 
 .category-card-title {
@@ -671,8 +695,9 @@ footer hr {
   .category-card {
     padding: 1rem;
   }
-  .category-image-placeholder {
-    height: 120px; /* Slightly smaller placeholder on mobile */
+  /* .category-image-placeholder rule was here, removed */
+  .category-card-image {
+    height: 120px; /* Slightly smaller image on mobile, consistent with old placeholder */
   }
 }
 
@@ -716,9 +741,10 @@ footer hr {
   .product-card {
     padding: 1rem; /* Reduce padding inside product cards */
   }
-  .product-image-placeholder {
-    height: 200px; /* Reduce placeholder height */
+  .product-card-image { /* Adjust image height on mobile */
+    height: 250px;
   }
+  /* .product-image-placeholder rule was here, removed as part of placeholder removal */
 
   /* Newsletter form stacking */
   #newsletter-signup form .col-md-6,
